@@ -12,10 +12,10 @@ server.on('request', function(req, res) {
         console.log(`headers: ${JSON.stringify(req.headers)}`)
         console.log(`payload: ${req.payload}`)
 
-        res.end();
+        // res.end();
     } catch (err){
         console.log("Exception occurred: " + err)
-        res.end();
+        // res.end();
     }
 })
 
