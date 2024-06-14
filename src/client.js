@@ -6,23 +6,25 @@ const ip = 'localhost'
 const port = '5683'
 const path = '/test/topic'
 
-const req = coap.request(`coap://${ip}:${port}/${path}`)
 
-const payload = {
-    title: 'this is a test payload',
-    body: 'containing nothing useful'
+function sendRequest(num){
+  req = coap.request(`coap://${ip}:${port}/${path}`)
+
+  payload = {
+      title: 'this is a test payload',
+      body: num
+  }
+  
+  req.write(JSON.stringify(payload))
+  
+  req.on('finish', (res) => {
+    
+      console.log(`finished ${num}`)
+  })
+  
+  req.end()
 }
 
-req.write(JSON.stringify(payload))
-
-req.on('response', (res) => {
-  
-    res.pipe(process.stdout)
-  res.on('end', () => {
-    console.log("rqst sent")
-    process.exit(0)
-  })
-
-})
-
-req.end()
+sendRequest(1)
+sendRequest(2)
+sendRequest(3)

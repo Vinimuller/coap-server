@@ -5,8 +5,9 @@ const server  = coap.createServer()
 
 server.on('request', function(req, res) {
     try{
-        console.log("")
-
+        console.log("--------------new msg-----------------")
+        console.log(`msgId: ${req._packet.messageId}`)
+        console.log(`ip: ${req.rsinfo.address}`)
         console.log(`url: ${req.url}`)
         console.log(`method: ${req.method}`)
         console.log(`headers: ${JSON.stringify(req.headers)}`)
