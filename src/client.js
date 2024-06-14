@@ -17,6 +17,13 @@ function sendRequest(num){
   
   req.write(JSON.stringify(payload))
   
+  req.on('response', (res) => {
+    res.pipe(process.stdout)
+    res.on('end', () => {
+      process.exit(0)
+    })
+  })
+
   req.on('finish', (res) => {
     
       console.log(`finished ${num}`)
@@ -26,5 +33,5 @@ function sendRequest(num){
 }
 
 sendRequest(1)
-sendRequest(2)
-sendRequest(3)
+// sendRequest(2)
+// sendRequest(3)
