@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const coap    = require('coap')
+// const ip = '34.228.186.7'
 const ip = 'localhost'
 const port = '5683'
 const path = '/test/topic'
