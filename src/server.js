@@ -36,7 +36,7 @@ server.on('request', function(req, res) {
             device.publish(url, req.payload);
         }
 
-        res.end("serverACK")
+        res.end("serverACK\r\n")
     } catch (err){
         console.log("Exception occurred: " + err)
     }
