@@ -2,6 +2,8 @@ FROM node:18-alpine
 
 COPY src/server.js /app/
 COPY src/package.json . /app/
+COPY .env /app/
+COPY .keys/* /app/.keys/
 
 WORKDIR /app
 
